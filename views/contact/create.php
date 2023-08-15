@@ -40,14 +40,14 @@ $this->title = 'Добавить контакт';
                         <tr>
                             <li class="list-group-item">
                                 <p><?= Html::encode($contact->name) ?>
-                                    <?= Html::a('<i class="fa-sharp fa-solid fa-xmark"></i>', ['delete', 'id' => $contact->id], [
+                                    <?= Html::a('<i class="fa fa-times" aria-hidden="true"></i>', ['delete', 'id' => $contact->id], [
                                         'data' => [
                                             'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
                                             'method' => 'post',
                                         ],
                                     ]) ?>
                                 </p>
-                                <span><?= Html::encode($contact->phone) ?></span></li>
+                                <span><?= preg_replace('/(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/', '$1 $2 $3 $4 $5', Html::encode($contact->phone) );?></span></li>
                         </tr>
                     <?php endforeach; ?>
                 </ul>
