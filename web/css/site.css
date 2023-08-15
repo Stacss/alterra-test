@@ -82,3 +82,51 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.width-form-sm{
+    width: 320px;
+}
+.width-form-sm .modal-header {
+    padding: 19px;
+    border-bottom: 1px solid #eeeeee;
+}
+.width-form-sm .list-group-item {
+    border-bottom: 1px solid #eeeeee;
+}
+.width-form-sm button{
+    background-color: #4d59a1;
+    border-color: #4d59a1;
+}
+.width-form-sm input {
+    height: 40px;
+    border: 1px solid #eeeeee;
+}
+.width-form-sm li {
+    padding: 20px 25px 20px 25px;
+}
+.width-form-sm p {
+    margin-bottom: 0;
+}
+.width-form-sm span {
+    color: #666666;
+    size: 9px;
+}
+.width-form-sm .modal-content{
+    border: none;
+}
+.width-form-sm input::placeholder {
+    color: #b3b3b3;
+}
+.width-form-sm h1 {
+    font-size: 15px;
+    color: #333333;
+}
+.padding-contact{
+    padding: 25px;
+}
+.padding-contact-none{
+    padding: 0;
+}
+.background-contact {
+    background-color: #eceff4;
+}
+
