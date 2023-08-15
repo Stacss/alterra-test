@@ -8,18 +8,21 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="contact-form">
 
-    <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+<?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'phone')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-
+<div class="mb-3">
+    <?= $form->field($model, 'name', ['template' => '{input}', 'inputOptions' => ['class' => 'form-control', 'placeholder' => 'Имя', 'required' => true]]) ?>
 </div>
+
+<div class="mb-3">
+<?= $form->field($model, 'phone', ['template' => '{input}', 'inputOptions' => ['class' => 'form-control', 'placeholder' => 'Телефон', 'required' => true]])->textInput() ?>
+</div>
+<div class="form-group">
+    <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary float-right']) ?>
+</div>
+
+<?php ActiveForm::end(); ?>
+
+
