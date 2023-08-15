@@ -29,6 +29,8 @@ class Contact extends \yii\db\ActiveRecord
         return [
             [['name', 'phone'], 'required'],
             [['phone'], 'integer'],
+            [['phone'], 'string', 'length' => 11],
+            [['phone'], 'match', 'pattern' => '/^[0-9]*$/'], //проверка на ненужные символы +,-,(,), пробел
             [['name'], 'string', 'max' => 255],
         ];
     }
