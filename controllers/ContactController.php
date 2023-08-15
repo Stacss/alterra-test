@@ -81,14 +81,20 @@ class ContactController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                $contacts = Contact::find()->all();
+                return $this->render('create', [
+                    'model' => $model,
+                    'contacts' => $contacts,
+                ]);
             }
         } else {
+            $contacts = Contact::find()->all();
             $model->loadDefaultValues();
         }
 
         return $this->render('create', [
             'model' => $model,
+            'contacts' => $contacts,
         ]);
     }
 
@@ -123,7 +129,7 @@ class ContactController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['create']);
     }
 
     /**
