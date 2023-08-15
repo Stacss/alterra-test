@@ -7,6 +7,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * ContactController implements the CRUD actions for Contact model.
@@ -80,8 +81,10 @@ class ContactController extends Controller
         $model = new Contact();
 
         if ($this->request->isPost) {
+
             if ($model->load($this->request->post()) && $model->save()) {
                 $contacts = Contact::find()->all();
+                Yii::$app->session->setFlash('success', 'Запись успешно добавлена.');
                 return $this->render('create', [
                     'model' => $model,
                     'contacts' => $contacts,
@@ -128,7 +131,7 @@ class ContactController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        Yii::$app->session->setFlash('success', 'Запись успешно удалена.');
         return $this->redirect(['create']);
     }
 
