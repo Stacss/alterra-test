@@ -56,6 +56,7 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </header>
 
 <main role="main" class="flex-shrink-0">
@@ -70,8 +71,7 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
+
     </div>
 </footer>
 
