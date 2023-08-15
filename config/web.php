@@ -43,14 +43,18 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'contact' => 'contact/index',
+                'contact/create' => 'contact/create',
+                'contact/update/<id:\d+>' => 'contact/update',
+                'contact/delete/<id:\d+>' => 'contact/delete',
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
