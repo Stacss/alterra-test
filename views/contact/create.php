@@ -5,16 +5,55 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\Contact $model */
 
-$this->title = 'Create Contact';
-$this->params['breadcrumbs'][] = ['label' => 'Contacts', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Добавить контакт';
+//$this->params['breadcrumbs'][] = ['label' => 'Contacts', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contact-create">
+<div class="row justify-content-center">
+    <div class="width-form-sm shadow-sm mb-4">
+        <div class="modal-content section-bg">
+            <div class="modal-header bg-modal">
+                <h1 class="modal-title text-center"><?= Html::encode($this->title) ?></h1>
+            </div>
+            <div class="modal-body padding-contact">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+                <?= $this->render('_form', [
+                    'model' => $model,
+                ]) ?>
 
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="row justify-content-center">
+    <div class="width-form-sm shadow-sm">
+        <div class="modal-content section-bg">
+            <div class="modal-header bg-modal">
+                <h1 class="modal-title text-center">Список контактов</h1>
+            </div>
+            <div class="modal-body padding-contact-none">
+
+                <ul class="list-group list-group-flush">
+                    <?php foreach ($contacts as $contact): ?>
+                        <tr>
+                            <li class="list-group-item">
+                                <p><?= Html::encode($contact->name) ?>
+                                    <?= Html::a('<i class="fa-sharp fa-solid fa-xmark"></i>', ['delete', 'id' => $contact->id], [
+                                        'data' => [
+                                            'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
+                                            'method' => 'post',
+                                        ],
+                                    ]) ?>
+                                </p>
+                                <span><?= Html::encode($contact->phone) ?></span></li>
+                        </tr>
+                    <?php endforeach; ?>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
