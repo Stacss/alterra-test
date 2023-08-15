@@ -106,6 +106,13 @@ a.desc:after {
 .width-form-sm p {
     margin-bottom: 0;
 }
+.width-form-sm a, i {
+    font-size: 11px;
+    color: #333333;
+}
+.width-form-sm a:hover, i:hover {
+    color: darkred;
+}
 .width-form-sm span {
     color: #666666;
     size: 9px;
